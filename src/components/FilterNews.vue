@@ -1,32 +1,45 @@
 <template>
     <div id="app">
-        <div>
-            <input id="colDesign" name="design" type="checkbox"   v-on:click="$emit('toggle-isColumn')"><label for="colDesign">Плитки</label>
-
-        </div>
-
-        <div>
-            <h4>Кол-во отображаемых новостей</h4>
-            <input id="number" type="number" value="10" max="15" min="1"
-                   v-on:change="newsOnPage"
-            />
-        </div>
-
+        <DisplayDesignSiteFilter
+                v-on:toggleIsColumn="toggleIsColumn"
+        />
+        <DisplayNewsNowFilter
+                v-on:changeNewsOnPage="changeNewsOnPage2"
+                :news-on-page="this.newsOnPage"
+        />
+        <SortNewsFilter
+            v-on:sortNews="sortNews"
+        />
     </div>
 </template>
 
 <script>
+    import DisplayDesignSiteFilter from "./DisplayDesignSiteFilter";
+    import DisplayNewsNowFilter from "./DisplayNewsNowFilter";
+    import SortNewsFilter from "./SortNewsFilter";
+
     export default {
+        props: ['isColumn', 'changeNewsOnPage', 'newsOnPage'],
         components: {
-            props: ['isColumn', 'changeNewsOnPage']
+            DisplayDesignSiteFilter,
+            DisplayNewsNowFilter,
+            SortNewsFilter
         },
         methods: {
-            newsOnPage(e) {
-                let num = e.target.value;
+            changeNewsOnPage2(num) {
                 this.$emit('changeNewsOnPage', num);
+            },
+            toggleIsColumn() {
+                this.$emit('toggleIsColumn');
+            },
+            sortNews(optionValue) {
+                this.$emit('sortNews', optionValue);
+                console.log(optionValue)
             }
-        }
+        },
+
     }
+
 </script>
 
 <style>

@@ -21,5 +21,3 @@ git commit -m 'deploy'
 
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:<DmitriyHoney>/<feed-application>.git master:gh-pages
-
-cd -

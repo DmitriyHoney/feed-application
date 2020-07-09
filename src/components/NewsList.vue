@@ -28,7 +28,7 @@
         flex-direction: column;
     }
     .col li {
-        width: 800px;
+        width: 90%;
         padding: 5px;
         margin-bottom: 15px;
         display: flex;

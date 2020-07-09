@@ -5,10 +5,10 @@
         </div>
         <div class="info">
             <h4>
-                {{oneNews.title}}
+                {{oneNews.Title}}
             </h4>
             <p>
-                {{oneNews.body}}
+                {{oneNews.Description}}
             </p>
         </div>
     </li>
@@ -27,9 +27,12 @@
 
 <style scope>
     .news-image {
-        width: 250px;
+        width: 30%;
         height: 200px;
         margin: 0px auto;
+    }
+    .info  {
+        width: 70%;
     }
     .news-image img {
         width: 100%;
